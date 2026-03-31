@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>License — BitResume</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --fg: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #1e3a8a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fg: #f1f5f9;
+        --muted: #94a3b8;
+        --border: #334155;
+        --accent: #93c5fd;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1.5rem 1.75rem 2.5rem;
+      font: 15px/1.55 system-ui, "Segoe UI", Roboto, sans-serif;
+      color: var(--fg);
+      max-width: 44rem;
+    }
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 1.75rem 0 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0.5rem; }
+    p { margin: 0.5rem 0; }
+    ul { margin: 0.4rem 0 0.6rem; padding-left: 1.35rem; }
+    li { margin: 0.25rem 0; }
+    code, kbd {
+      font-size: 0.88em;
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: rgb(148 163 184 / 0.2);
+    }
+    a { color: var(--accent); }
+    .note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-left: 3px solid var(--border);
+      padding-left: 0.85rem;
+      margin: 0.75rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>License &amp; third-party components</h1>
+  <p class="subtitle">BitResume — legal notices and third-party.</p>
+
+  <h2>Your application (BitResume)</h2>
+  <p>
+    The BitResume application source in this distribution is licensed under the
+    <strong>MIT License</strong>. The complete text is in the
+    <code>LICENSE</code> file shipped with the installation.
+  </p>
+  <p class="note">
+    After installation (Windows): open the <code>resources</code> directory next to the app.
+    You will find <code>LICENSE</code>, <code>THIRD_PARTY_LICENSES.en.txt</code>, and
+    <code>THIRD_PARTY_LICENSES.pl.txt</code> there.
+  </p>
+
+  <h2>Third-party components</h2>
+  <p>
+    The app uses open-source libraries (React, Next.js, etc.) under their own licenses
+    and runs on <strong>Electron</strong> with the <strong>Chromium</strong> engine, each with its own
+    license notice set.
+  </p>
+  <ul>
+    <li><a href="https://github.com/electron/electron" target="_blank" rel="noopener noreferrer">Electron — repository</a></li>
+    <li><a href="https://www.chromium.org/Home/chromium-license/" target="_blank" rel="noopener noreferrer">Chromium — license information</a></li>
+  </ul>
+  <p>
+    The detailed npm package list (English) is in <code>THIRD_PARTY_LICENSES.en.txt</code>
+    inside <code>resources</code>.
+  </p>
+
+  <h2>NSIS installer</h2>
+  <p>
+    The Windows NSIS installer presents the license agreement in a language matching
+    your OS settings (PL/EN), including MIT License acceptance and third-party guidance.
+  </p>
+
+  <h2>Disclaimer</h2>
+  <p class="note">
+    The author(s) and contributor(s) of BitResume shall not be liable for any damages
+    arising from the use of this software or from the inability to use it, to the
+    fullest extent permitted by applicable law.
+  </p>
+</body>
+</html>

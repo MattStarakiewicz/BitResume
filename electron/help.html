@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instrukcja obsługi — BitResume</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --fg: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #1e3a8a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fg: #f1f5f9;
+        --muted: #94a3b8;
+        --border: #334155;
+        --accent: #93c5fd;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1.5rem 1.75rem 2.5rem;
+      font: 15px/1.55 system-ui, "Segoe UI", Roboto, sans-serif;
+      color: var(--fg);
+      max-width: 44rem;
+    }
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 1.75rem 0 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0.5rem; }
+    p { margin: 0.5rem 0; }
+    ul, ol { margin: 0.4rem 0 0.6rem; padding-left: 1.35rem; }
+    li { margin: 0.25rem 0; }
+    code, kbd {
+      font-size: 0.88em;
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: rgb(148 163 184 / 0.2);
+    }
+    a { color: var(--accent); }
+    .note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-left: 3px solid var(--border);
+      padding-left: 0.85rem;
+      margin: 0.75rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Instrukcja obsługi BitResume</h1>
+  <p class="subtitle">Krótki przewodnik po edytorze CV, zapisie danych i eksporcie do PDF (wersja aplikacji desktopowej).</p>
+
+  <h2>Czym jest BitResume?</h2>
+  <p>
+    BitResume to aplikacja do budowania CV w dwóch językach (PL i EN) w jednym pliku szablonu.
+    Możesz przełączać widok jasny / mieszany / ciemny, edytować treść na miejscu oraz zapisać wynik jako PDF.
+  </p>
+
+  <h2>Język i treść CV</h2>
+  <ul>
+    <li><strong>PL / EN</strong> — przełącznik w pasku narzędzi zmienia wyświetlaną wersję językową; obie są przechowywane w jednym pliku JSON.</li>
+    <li><strong>Tryb edycji</strong> — włącza edycję pól (tekst, listy, dodawanie/usuwanie elementów). Gdy jest aktywny, przycisk na pasku ma wyraźne podświetlenie — kolor zależy od wybranego motywu (ciemny / mieszany / druk). Bez trybu edycji CV wygląda jak podgląd tylko do odczytu.</li>
+  </ul>
+
+  <h2>Widok (motyw)</h2>
+  <ul>
+    <li><strong>Tryb mieszany</strong> (domyślny) — jasna karta CV z granatowymi akcentami.</li>
+    <li><strong>Tryb druku</strong> — jasne tło zbliżone do wydruku.</li>
+    <li><strong>Tryb ciemny (web)</strong> — ciemna oprawa i ciemna karta CV.</li>
+  </ul>
+
+  <h2>Zapis i otwieranie danych</h2>
+  <ul>
+    <li><strong>Zapisz</strong> — zapisuje bieżący szablon (PL+EN) w skonfigurowanej lokalizacji.</li>
+    <li><strong>Zapisz jako</strong> — ustawia nazwę pliku (np. <code>template.json</code>) oraz folder docelowy (w aplikacji desktopowej: zwykle folder w Dokumentach, np. <code>CV_Data</code>).</li>
+    <li><strong>Wczytaj szablon</strong> — otwiera plik JSON z dysku i zastępuje aktualne dane (o ile format jest poprawny).</li>
+    <li class="note">Przy pierwszym uruchomieniu aplikacja może utworzyć domyślny plik <code>template.json</code> w folderze danych CV — możesz go później nadpisać własną treścią.</li>
+  </ul>
+
+  <h2>Druk do PDF</h2>
+  <p>
+    Przycisk <strong>Drukuj do PDF</strong> (lub „Print to PDF” w EN) generuje plik PDF z bieżącego widoku CV —
+    uwzględniany jest aktualny motyw (jasny / mieszany / ciemny). Postęp zapisu może chwilowo wyłączyć edycję na czas generowania.
+  </p>
+
+  <h2>Zdjęcie profilowe</h2>
+  <p>
+    W trybie edycji dostępne są akcje wgrywania i usuwania zdjęcia. Możesz przyciąć obraz w prostym kadrowaniu przed zastosowaniem.
+  </p>
+
+  <h2>Sekcje i kolejność</h2>
+  <p>
+    Główne bloki (doświadczenie, projekty, certyfikaty itd.) można w trybie edycji układać w ustalonej kolejności, jeśli aplikacja to udostępnia w danym widoku.
+    Listy punktów (np. pod stanowiskami) oraz umiejętności zwykle można dodawać, usuwać i przestawiać po kolei.
+  </p>
+
+  <h2>Klauzula RODO</h2>
+  <p>
+    Tekst w stopce CV możesz dostosować do własnych potrzeb prawnych i rekrutacyjnych — edytuj go tak jak pozostałe pola w danej wersji językowej.
+  </p>
+
+  <h2>Skróty i okna pomocy</h2>
+  <p>
+    Z menu <strong>Pomoc</strong> otworzysz tę instrukcję, informacje <strong>O autorze</strong> oraz okno
+    <strong>O programie</strong> z numerem wersji.
+  </p>
+</body>
+</html>

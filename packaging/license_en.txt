@@ -1,0 +1,30 @@
+﻿License agreement — BitResume
+================================================================================
+
+The BitResume application (the source code distributed as part of this package) is licensed under the MIT License (Massachusetts Institute of Technology License).
+
+The complete MIT license text is installed with the application in the LICENSE file inside the installation directory’s “resources” folder.
+
+ACCEPTANCE
+----------
+By installing this software, you state that you have read the MIT License and accept its terms to the extent required to use this program. If you do not agree, cancel the installation.
+
+Disclaimer
+----------
+The author(s) and contributor(s) of BitResume shall not be liable for any damages arising from the use of this software or from the inability to use it, to the fullest extent permitted by applicable law.
+
+Third-party components
+----------------------
+This application bundles and/or uses libraries and tools from third parties (including the Node.js / React / Next.js ecosystem), each under its own license (e.g. MIT, ISC, Apache-2.0, BSD, CC-BY-4.0, 0BSD).
+
+The app runs on Electron and uses the Chromium engine; both are subject to their own license notices and terms.
+
+A detailed list of npm dependencies shipped with this build is provided in:
+  • THIRD_PARTY_LICENSES.en.txt (this language)
+  • THIRD_PARTY_LICENSES.pl.txt (Polski)
+
+These files are located in the same “resources” folder as LICENSE.
+
+Useful links (may require an Internet connection):
+  • Electron — repository and license: https://github.com/electron/electron
+  • Chromium — license information: https://www.chromium.org/Home/chromium-license/

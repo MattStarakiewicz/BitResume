@@ -19,6 +19,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -39,3 +40,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Electron-builder output
+/dist-electron
+/release
+/*.exe
+/*.dmg
+/*.AppImage
+/*.deb
+
+# Local storage & databases (jeśli Twoja apka coś tam trzyma lokalnie)
+*.db
+*.localdata
+
+# IDE config (opcjonalnie, ale warto)
+.vscode/
+.idea/

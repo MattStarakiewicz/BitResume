@@ -1,0 +1,66 @@
+BitResume — third-party components listing
+=========================================
+
+This file summarizes third-party components based on the project’s production npm
+dependency tree and explicitly includes the desktop runtime stack.
+
+Full license texts live in each upstream repository or in package LICENSE files
+in node_modules at build time. Below are SPDX / npm-reported identifiers.
+
+-------------------------------------------------------------------------------
+Runtime (not a production npm dependency, but part of distributed binaries)
+-------------------------------------------------------------------------------
+
+• Electron — https://github.com/electron/electron
+  See the Electron project LICENSE and your installed copy for legal notices.
+
+• Chromium (bundled with Electron) — https://www.chromium.org/Home/chromium-license/
+  Chromium aggregates many differently licensed parts; the authoritative notice set
+  is maintained by the Chromium project.
+
+
+-------------------------------------------------------------------------------
+npm packages (production dependencies; project meta-package omitted)
+-------------------------------------------------------------------------------
+
+Package                                | Reported license / SPDX
+---------------------------------------+------------------------------------------
+@img/colour@1.1.0                      | MIT
+@img/sharp-win32-x64@0.34.5            | Apache-2.0 AND LGPL-3.0-or-later
+@next/env@16.2.1                      | MIT
+@next/swc-win32-x64-msvc@16.2.1        | MIT
+@swc/helpers@0.5.15                    | Apache-2.0
+baseline-browser-mapping@2.10.11       | Apache-2.0
+caniuse-lite@1.0.30001781             | CC-BY-4.0
+client-only@0.0.1                     | MIT
+detect-libc@2.1.2                     | Apache-2.0
+lucide-react@1.7.0                     | ISC
+nanoid@3.3.11                         | MIT
+next@16.2.1                           | MIT
+next-themes@0.4.6                     | MIT
+picocolors@1.1.1                       | ISC
+postcss@8.4.31                        | MIT
+react@19.2.4                          | MIT
+react-dom@19.2.4                      | MIT
+scheduler@0.27.0                      | MIT
+semver@7.7.4                          | ISC (sharp dependency subtree)
+sharp@0.34.5                         | Apache-2.0
+source-map-js@1.2.1                   | BSD-3-Clause
+styled-jsx@5.1.6                     | MIT
+tslib@2.8.1                          | 0BSD
+
+
+-------------------------------------------------------------------------------
+Notes
+-------------------------------------------------------------------------------
+• Labels come from npm metadata / license-checker; in case of conflict, the package’s
+  LICENSE file or upstream repository prevails.
+
+• LGPL portions (e.g. some sharp binaries) may impose extra obligations when you
+  modify or swap those libraries — read LGPL-3.0 in full if that applies to you.
+
+BitResume application source (outside the libraries above) is under the MIT License —
+see the LICENSE file alongside this document (after install: in resources).
+
+• The author(s) and contributor(s) shall not be liable for damages arising from use of
+  or inability to use the software — see also LICENSE (supplementary notice / MIT text).

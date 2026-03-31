@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Documentation — BitResume</title>
+  <style>
+    :root { color-scheme: light dark; --fg:#0f172a; --muted:#475569; --border:#e2e8f0; --accent:#1e3a8a; }
+    @media (prefers-color-scheme: dark) { :root { --fg:#f1f5f9; --muted:#94a3b8; --border:#334155; --accent:#93c5fd; } }
+    * { box-sizing: border-box; }
+    body { margin:0; padding:1.5rem 1.75rem 2.5rem; font:15px/1.55 system-ui, "Segoe UI", Roboto, sans-serif; color:var(--fg); max-width:44rem; }
+    h1 { font-size:1.35rem; font-weight:700; margin:0 0 .35rem; letter-spacing:-.02em; }
+    .subtitle { color:var(--muted); font-size:.9rem; margin-bottom:1.5rem; }
+    h2 { font-size:1.05rem; font-weight:600; margin:1.75rem 0 .5rem; padding-top:.5rem; border-top:1px solid var(--border); }
+    h2:first-of-type { border-top:none; padding-top:0; margin-top:.5rem; }
+    p { margin:.5rem 0; }
+    ul, ol { margin:.4rem 0 .6rem; padding-left:1.35rem; }
+    li { margin:.25rem 0; }
+    code { font-size:.88em; padding:.12em .35em; border-radius:4px; background:rgb(148 163 184 / .2); }
+    a { color:var(--accent); }
+    .note { font-size:.88rem; color:var(--muted); border-left:3px solid var(--border); padding-left:.85rem; margin:.75rem 0; }
+  </style>
+</head>
+<body>
+  <h1>BitResume Documentation</h1>
+  <p class="subtitle">Quick guide to CV editing, data storage, and PDF export (desktop app).</p>
+
+  <h2>What is BitResume?</h2>
+  <p>BitResume is a CV builder that supports two language versions (PL and EN) in a single template file. You can switch visual modes, edit content inline, and export to PDF.</p>
+
+  <h2>Language and CV content</h2>
+  <ul>
+    <li><strong>PL / EN</strong> — the toolbar switch changes the currently edited language version; both are stored in one JSON file.</li>
+    <li><strong>Edit mode</strong> — enables inline editing (text fields, lists, add/remove/reorder actions). While it is on, the toolbar button is clearly highlighted; the accent color depends on the active theme (dark / mixed / print). With edit mode off, the CV looks like a read-only preview.</li>
+  </ul>
+
+  <h2>Visual modes</h2>
+  <ul>
+    <li><strong>Mixed mode</strong> (default) — bright CV card with navy accents.</li>
+    <li><strong>Print mode</strong> — print-friendly bright layout.</li>
+    <li><strong>Dark mode (web)</strong> — dark shell and dark CV card.</li>
+  </ul>
+
+  <h2>Save and load data</h2>
+  <ul>
+    <li><strong>Save</strong> — saves your current template (PL+EN) to the configured location.</li>
+    <li><strong>Save as</strong> — sets output file name (for example <code>template.json</code>) and target folder (desktop: typically Documents / <code>CV_Data</code>).</li>
+    <li><strong>Load template</strong> — opens a JSON file from disk and replaces current data (if format is valid).</li>
+    <li class="note">On first run, the app can create a default <code>template.json</code> in the CV data folder; you can overwrite it anytime.</li>
+  </ul>
+
+  <h2>Print to PDF</h2>
+  <p><strong>Print to PDF</strong> exports the currently visible CV and respects active color mode. Editing can be temporarily disabled while export is in progress.</p>
+
+  <h2>Profile photo</h2>
+  <p>In edit mode you can upload, crop, and remove profile photo.</p>
+
+  <h2>Sections and order</h2>
+  <p>Main blocks (experience, projects, certifications, etc.) can be managed in edit mode. Lists and skills can also be added, removed, and reordered.</p>
+
+  <h2>Help menu</h2>
+  <p>From <strong>Help</strong> menu you can open this documentation, <strong>About author</strong>, and <strong>About</strong> window with app version.</p>
+</body>
+</html>

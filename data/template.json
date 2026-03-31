@@ -1,0 +1,364 @@
+{
+  "pl": {
+    "profile": {
+      "fullName": "Anna Kowalska",
+      "title": "Starszy inżynier oprogramowania / Tech lead",
+      "summary": "12+ lat w budowie systemów backendowych i aplikacji webowych w JavaScript/TypeScript. Skupienie na niezawodności, obserwowalności i jakości kodu. Doświadczenie w prowadzeniu zespołu, code review i współpracy z produktem. Szukam ról łączących architekturę, mentoring i wpływ na jakość dostarczania.",
+      "location": "Warszawa, Polska",
+      "email": "anna.kowalska@example.com",
+      "phone": "+48 601 234 567",
+      "website": "https://portfolio.example.com",
+      "linkedin": "linkedin.com/in/anna-kowalska-przyklad",
+      "photoUrl": "./profile-placeholder.svg"
+    },
+    "footer": {
+      "rodoClause": "Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w niniejszym CV na potrzeby obecnego oraz przyszłych procesów rekrutacyjnych, zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO)."
+    },
+    "contacts": [
+      {
+        "kind": "email",
+        "label": "Email",
+        "value": "anna.kowalska@example.com",
+        "href": "mailto:anna.kowalska@example.com"
+      },
+      {
+        "kind": "phone",
+        "label": "Telefon",
+        "value": "+48 601 234 567",
+        "href": "tel:+48601234567"
+      },
+      {
+        "kind": "website",
+        "label": "WWW",
+        "value": "portfolio.example.com",
+        "href": "https://portfolio.example.com"
+      },
+      {
+        "kind": "linkedin",
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/anna-kowalska-przyklad",
+        "href": "https://linkedin.com/in/anna-kowalska-przyklad"
+      },
+      {
+        "kind": "location",
+        "label": "Lokalizacja",
+        "value": "Warszawa, hybrydowo / zdalnie"
+      }
+    ],
+    "skills": [
+      "TypeScript",
+      "JavaScript (ES2022+)",
+      "Node.js",
+      "React / Next.js",
+      "REST i GraphQL",
+      "PostgreSQL",
+      "Redis",
+      "Docker / Kubernetes (podstawy)",
+      "CI/CD (GitHub Actions, GitLab)",
+      "Jest / Vitest",
+      "Architektura modułowa",
+      "Code review i mentoring",
+      "Event-driven design",
+      "Observability (logi, metryki, tracing)",
+      "Agile / Scrum"
+    ],
+    "experience": [
+      {
+        "role": "Starszy inżynier oprogramowania",
+        "company": "TechCorp Polska Sp. z o.o.",
+        "location": "Warszawa",
+        "period": "03.2021 – obecnie",
+        "bullets": [
+          "Projektowanie i rozwój API obsługujących 2M+ żądań dziennie; redukcja p95 latency o ~35% dzięki caching i optymalizacji zapytań.",
+          "Prowadzenie zespołu 5–6 osób: planowanie sprintów, oceny, rozwój ścieżek karier juniorów.",
+          "Wprowadzenie standardów testów kontraktowych i skrócenie czasu regresji o ok. 40%."
+        ],
+        "descriptionMd": "- **Stack:** Node.js, TypeScript, PostgreSQL, Redis, Kafka, Kubernetes.\n- **Architektura:** moduły domenowe, outbox, idempotentne konsumenty zdarzeń.\n- **Proces:** RFC dla większych zmian, pair programming przy krytycznych obszarach."
+      },
+      {
+        "role": "Inżynier oprogramowania (full stack)",
+        "company": "StartupFin Solutions",
+        "location": "Kraków (zdalnie)",
+        "period": "06.2018 – 02.2021",
+        "bullets": [
+          "Wdrożenie panelu analitycznego dla klientów B2B (React + API w NestJS).",
+          "Integracje z brokerami płatności i systemami KYC — obsługa błędów, retry i audytu.",
+          "Budowa biblioteki wewnętrznych komponentów UI i dokumentacji w Storybook."
+        ],
+        "descriptionMd": "- **Wyzwanie:** krótkie SLA i wysokie wymagania bezpieczeństwa danych finansowych.\n- **Wynik:** stabilny release co dwa tygodnie, spadek liczby incydentów P1 w kwartale o ok. 50%."
+      },
+      {
+        "role": "Junior / Mid developer",
+        "company": "Agencja Interaktywna Pixelworks",
+        "location": "Wrocław",
+        "period": "09.2014 – 05.2018",
+        "bullets": [
+          "Utrzymanie i rozwój sklepów e‑commerce na WordPress / WooCommerce oraz custom PHP.",
+          "Migracja wybranych serwisów na SPA (React) i API (Laravel).",
+          "Współpraca z PM i designerami — szacowanie, priorytetyzacja backlogu."
+        ],
+        "descriptionMd": "- **Narzędzia:** PHP, MySQL, React, Webpack, Jenkins.\n- **Nauka:** przejście od stacku agencji do bardziej typowanego backendu i testów jednostkowych."
+      }
+    ],
+    "education": [
+      {
+        "school": "Politechnika Warszawska",
+        "degree": "Magister informatyki, spec. Inżynieria oprogramowania",
+        "period": "2012 – 2014",
+        "notes": "Praca magisterska: wzorce odporności na awarie w systemach rozproszonych. Średnia: 4,6."
+      },
+      {
+        "school": "Politechnika Wrocławska",
+        "degree": "Inżynier, kierunek Informatyka",
+        "period": "2008 – 2012",
+        "notes": "Koło naukowe: projekty webowe i zawody programistyczne."
+      },
+      {
+        "school": "Technikum elektroniczne",
+        "degree": "Technik informatyk",
+        "period": "2004 – 2008",
+        "notes": "Laureat ogólnopolskiej olimpiady informatycznej (etap wojewódzki)."
+      }
+    ],
+    "projects": [
+      {
+        "name": "OpenAPI Diff CLI (open source)",
+        "period": "2023",
+        "description": "- **Cel:** narzędzie porównujące dwie wersje specyfikacji OpenAPI i generujące raport ryzyk dla zespołów API.\n- **Rola:** autor, ~40 gwiazdek na GitHub, publikacja na npm.\n- **Stack:** TypeScript, ajv, testy integracyjne z przykładowymi specami.",
+        "link": "https://github.com/example/openapi-diff-cli"
+      },
+      {
+        "name": "Wewnętrzny „Control Tower” dla mikroserwisów",
+        "period": "2020 – 2021",
+        "description": "- **Cel:** jeden dashboard ze stanem wdrożeń, health checków i limitów rate w środowiskach dev/stage/prod.\n- **Rola:** lead dev we dwóch z DevOps.\n- **Technologie:** React, NestJS, Prometheus, Grafana API.",
+        "link": ""
+      },
+      {
+        "name": "Hackathon „GreenTech” — 2. miejsce",
+        "period": "2019",
+        "description": "- **Pomysł:** aplikacja mobilna (PWA) do optymalizacji tras kurierskich pod kątem emisji CO₂.\n- **Stack:** Vue 2, Node, Mapbox, prosty solver w Pythonie (mikroserwis).",
+        "link": ""
+      }
+    ],
+    "trainings": [
+      {
+        "title": "AWS Certified Solutions Architect – Associate",
+        "provider": "Amazon Web Services",
+        "year": "2024"
+      },
+      {
+        "title": "Szkoła tech leadów — moduł architektury i komunikacji",
+        "provider": "Leadership Lab",
+        "year": "2023"
+      },
+      {
+        "title": "Bezpieczeństwo aplikacji webowych (OWASP Top 10)",
+        "provider": "Sekurak / szkolenie zamknięte",
+        "year": "2022"
+      },
+      {
+        "title": "Kubernetes od podstaw do produkcji",
+        "provider": "Altkom / online",
+        "year": "2021"
+      }
+    ],
+    "sectionOrder": [
+      "experience",
+      "projects",
+      "education",
+      "trainings",
+      "certifications"
+    ],
+    "languages": [
+      "Polski — ojczysty",
+      "Angielski — C1 (certyfikat: załącznik na życzenie)",
+      "Niemiecki — A2 w trakcie"
+    ],
+    "certifications": [
+      "AWS Solutions Architect – Associate (2024)",
+      "Certyfikat Scrum Master I (2019)",
+      "ISTQB Foundation Level (2018)"
+    ]
+  },
+  "en": {
+    "profile": {
+      "fullName": "Jane Sample",
+      "title": "Senior Software Engineer / Tech lead",
+      "summary": "12+ years building backend systems and web apps in JavaScript/TypeScript. Focus on reliability, observability, and code quality. Experience leading a small team, code review, and partnering with product. Looking for roles combining architecture, mentoring, and engineering excellence.",
+      "location": "Warsaw, Poland",
+      "email": "jane.sample@example.com",
+      "phone": "+48 601 234 567",
+      "website": "https://portfolio.example.com",
+      "linkedin": "linkedin.com/in/jane-sample-profile",
+      "photoUrl": "./profile-placeholder.svg"
+    },
+    "footer": {
+      "rodoClause": "I consent to the processing of my personal data contained in this CV for the purposes of current and future recruitment processes, in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council (GDPR)."
+    },
+    "contacts": [
+      {
+        "kind": "email",
+        "label": "Email",
+        "value": "jane.sample@example.com",
+        "href": "mailto:jane.sample@example.com"
+      },
+      {
+        "kind": "phone",
+        "label": "Phone",
+        "value": "+48 601 234 567",
+        "href": "tel:+48601234567"
+      },
+      {
+        "kind": "website",
+        "label": "Website",
+        "value": "portfolio.example.com",
+        "href": "https://portfolio.example.com"
+      },
+      {
+        "kind": "linkedin",
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/jane-sample-profile",
+        "href": "https://linkedin.com/in/jane-sample-profile"
+      },
+      {
+        "kind": "location",
+        "label": "Location",
+        "value": "Warsaw, hybrid / remote"
+      }
+    ],
+    "skills": [
+      "TypeScript",
+      "JavaScript (ES2022+)",
+      "Node.js",
+      "React / Next.js",
+      "REST & GraphQL",
+      "PostgreSQL",
+      "Redis",
+      "Docker / Kubernetes (basics)",
+      "CI/CD (GitHub Actions, GitLab)",
+      "Jest / Vitest",
+      "Modular architecture",
+      "Code review & mentoring",
+      "Event-driven design",
+      "Observability (logs, metrics, tracing)",
+      "Agile / Scrum"
+    ],
+    "experience": [
+      {
+        "role": "Senior Software Engineer",
+        "company": "TechCorp Poland LLC",
+        "location": "Warsaw",
+        "period": "Mar 2021 – present",
+        "bullets": [
+          "Designed and built APIs serving 2M+ requests/day; cut p95 latency ~35% via caching and query tuning.",
+          "Led a team of 5–6: sprint planning, reviews, growth paths for juniors.",
+          "Introduced contract testing standards and reduced regression time ~40%."
+        ],
+        "descriptionMd": "- **Stack:** Node.js, TypeScript, PostgreSQL, Redis, Kafka, Kubernetes.\n- **Architecture:** domain modules, outbox pattern, idempotent event consumers.\n- **Process:** RFCs for larger changes, pairing on critical paths."
+      },
+      {
+        "role": "Software Engineer (full stack)",
+        "company": "StartupFin Solutions",
+        "location": "Kraków (remote)",
+        "period": "Jun 2018 – Feb 2021",
+        "bullets": [
+          "Shipped an analytics dashboard for B2B clients (React + NestJS APIs).",
+          "Payment broker and KYC integrations — error handling, retries, audit trails.",
+          "Built an internal UI component library and Storybook docs."
+        ],
+        "descriptionMd": "- **Challenge:** tight SLAs and strong financial data security requirements.\n- **Outcome:** bi-weekly releases, ~50% fewer P1 incidents quarter over quarter."
+      },
+      {
+        "role": "Junior / Mid developer",
+        "company": "Pixelworks Interactive Agency",
+        "location": "Wrocław",
+        "period": "Sep 2014 – May 2018",
+        "bullets": [
+          "Maintained and extended e‑commerce sites on WordPress / WooCommerce and custom PHP.",
+          "Migrated selected sites to SPA (React) and API (Laravel).",
+          "Worked with PM and designers — estimation and backlog prioritisation."
+        ],
+        "descriptionMd": "- **Tools:** PHP, MySQL, React, Webpack, Jenkins.\n- **Growth:** moved from agency stack toward typed backends and unit testing."
+      }
+    ],
+    "education": [
+      {
+        "school": "Warsaw University of Technology",
+        "degree": "M.Sc. Computer Science, Software Engineering track",
+        "period": "2012 – 2014",
+        "notes": "Thesis: fault-tolerance patterns in distributed systems. GPA example: 4.6/5.0."
+      },
+      {
+        "school": "Wrocław University of Science and Technology",
+        "degree": "B.Sc. Computer Science",
+        "period": "2008 – 2012",
+        "notes": "Students’ club: web projects and programming contests."
+      },
+      {
+        "school": "Electronics technical high school",
+        "degree": "IT technician diploma",
+        "period": "2004 – 2008",
+        "notes": "Regional finalist, national informatics olympiad."
+      }
+    ],
+    "projects": [
+      {
+        "name": "OpenAPI Diff CLI (open source)",
+        "period": "2023",
+        "description": "- **Goal:** CLI comparing two OpenAPI versions and reporting API-breaking risks.\n- **Role:** author; ~40 GitHub stars; published on npm.\n- **Stack:** TypeScript, ajv, integration tests with sample specs.",
+        "link": "https://github.com/example/openapi-diff-cli"
+      },
+      {
+        "name": "Internal “Control Tower” for microservices",
+        "period": "2020 – 2021",
+        "description": "- **Goal:** single dashboard for deploy state, health checks, and rate limits across dev/stage/prod.\n- **Role:** dev lead with a DevOps partner.\n- **Tech:** React, NestJS, Prometheus, Grafana API.",
+        "link": ""
+      },
+      {
+        "name": "Hackathon “GreenTech” — 2nd place",
+        "period": "2019",
+        "description": "- **Idea:** PWA to optimize courier routes for CO₂ emissions.\n- **Stack:** Vue 2, Node, Mapbox, small Python solver microservice.",
+        "link": ""
+      }
+    ],
+    "trainings": [
+      {
+        "title": "AWS Certified Solutions Architect – Associate",
+        "provider": "Amazon Web Services",
+        "year": "2024"
+      },
+      {
+        "title": "Tech lead school — architecture & communication module",
+        "provider": "Leadership Lab",
+        "year": "2023"
+      },
+      {
+        "title": "Web application security (OWASP Top 10)",
+        "provider": "Private workshop",
+        "year": "2022"
+      },
+      {
+        "title": "Kubernetes fundamentals to production",
+        "provider": "Online bootcamp",
+        "year": "2021"
+      }
+    ],
+    "sectionOrder": [
+      "experience",
+      "projects",
+      "education",
+      "trainings",
+      "certifications"
+    ],
+    "languages": [
+      "Polish — native",
+      "English — C1 (certificate available on request)",
+      "German — A2 in progress"
+    ],
+    "certifications": [
+      "AWS Solutions Architect – Associate (2024)",
+      "Certified Scrum Master I (2019)",
+      "ISTQB Foundation Level (2018)"
+    ]
+  }
+}

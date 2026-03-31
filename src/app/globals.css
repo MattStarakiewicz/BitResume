@@ -1,26 +1,976 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f4f5;
+  --foreground: #18181b;
+  --cv-surface: #ffffff;
+  --cv-muted: #f4f4f5;
+  --cv-border: #e4e4e7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --cv-surface: #111113;
+  --cv-muted: #18181b;
+  --cv-border: #27272a;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+/* Pasek „Edytujesz: nazwa.json” — ten sam język kolorystyczny co toolbar w danym trybie */
+.doc-file-status {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--cv-border);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  background: var(--cv-surface);
+  color: var(--foreground);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+}
+
+.doc-file-status-label {
+  flex-shrink: 0;
+}
+
+.doc-file-status-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.doc-file-status-dirty {
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.cv-mixed-mode .doc-file-status {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fd 100%);
+  border-color: #c8d4ef;
+  box-shadow:
+    0 0 0 1px rgb(59 89 152 / 0.14),
+    0 4px 14px -6px rgb(17 24 39 / 0.12);
+}
+
+.cv-mixed-mode .doc-file-status-label {
+  color: #64748b;
+}
+
+.cv-mixed-mode .doc-file-status-name {
+  color: #102a5e;
+}
+
+.cv-mixed-mode .doc-file-status-dirty {
+  color: #b45309;
+}
+
+.web-mode .doc-file-status {
+  background: linear-gradient(160deg, #0a1020 0%, #121c38 100%);
+  border-color: #2a4668;
+  box-shadow:
+    0 0 0 1px rgb(42 70 104 / 0.5),
+    0 10px 28px -14px rgb(0 0 0 / 0.45);
+}
+
+.web-mode .doc-file-status-label {
+  color: #7eb8e0;
+}
+
+.web-mode .doc-file-status-name {
+  color: #e8f4ff;
+}
+
+.web-mode .doc-file-status-dirty {
+  color: #fde047;
+}
+
+.print-preview .doc-file-status {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.06);
+}
+
+.print-preview .doc-file-status-label {
+  color: #64748b;
+}
+
+.print-preview .doc-file-status-name {
+  color: #0f172a;
+}
+
+.print-preview .doc-file-status-dirty {
+  color: #b45309;
+}
+
+.toolbar-btn-active {
+  background: #18181b;
+  color: #fafafa;
+}
+
+.toolbar-btn-idle {
+  color: #111827;
+}
+
+.toolbar-btn-idle:hover {
+  background: rgb(228 228 231 / 0.8);
+}
+
+.editable-text {
+  box-sizing: border-box;
+  border: 1px dashed #94a3b8;
+  border-radius: 4px;
+  padding: 1px 4px;
+  cursor: text;
+  transition: border-color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+  background: rgb(241 245 249 / 0.15);
+  min-width: 0;
+  min-height: 1.2em;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  word-break: break-word;
+  vertical-align: top;
+}
+
+.editable-text:hover {
+  border-color: #16a34a;
+  background: rgb(236 253 245 / 0.75);
+}
+
+.editable-text-focused {
+  border-color: #16a34a !important;
+  background: rgb(236 253 245 / 0.95);
+  box-shadow: 0 0 0 2px rgb(22 163 74 / 0.15);
+  outline: none;
+}
+
+/* Web mode — cyberpunk dark shell + dark CV card */
+.web-mode {
+  background: radial-gradient(circle at top right, #112347 0%, #050a16 40%, #03060d 100%);
+  --cv-surface: #0a1020;
+  --cv-border: #1f3b5c;
+  color: #e2f3ff;
+}
+
+.cv-mode-wrap.web-mode {
+  background: radial-gradient(circle at top right, #112347 0%, #050a16 40%, #03060d 100%);
+}
+
+.web-mode .cv-sheet,
+.web-mode main.print-sheet.cv-sheet {
+  background: linear-gradient(160deg, #0a1020 0%, #101a33 100%) !important;
+  border-color: #2a4668 !important;
+  box-shadow:
+    0 0 0 1px rgb(42 70 104 / 0.45),
+    0 25px 50px -12px rgb(0 0 0 / 0.45);
+}
+
+.web-mode .cv-divider {
+  border-color: #2a4668;
+}
+
+/* Premium slate palette → readable on dark card */
+.web-mode .cv-sheet .text-slate-900 {
+  color: #e8f4ff !important;
+}
+
+.web-mode .cv-sheet .text-slate-700 {
+  color: #93b5d7 !important;
+}
+
+.web-mode .cv-sheet .text-slate-600 {
+  color: #86b4d8 !important;
+}
+
+.web-mode .cv-sheet .text-slate-500 {
+  color: #6b9cc9 !important;
+}
+
+.web-mode .cv-sheet .text-slate-400 {
+  color: #5ad4f0 !important;
+}
+
+.web-mode .cv-sheet .skill-pill-premium {
+  background: #11213d !important;
+  border-color: #36d1dc !important;
+  color: #a5f3fc !important;
+}
+
+.web-mode .cv-sheet li::marker {
+  color: #67e8f9;
+}
+
+.web-mode .cv-sheet a {
+  color: #7dd3fc;
+}
+
+.web-mode .cv-sheet a:hover {
+  color: #a5f3fc;
+}
+
+.web-mode .cv-section-rule {
+  border-top-color: #2a4668 !important;
+}
+
+.web-mode .cv-grid-print > aside {
+  border-color: #2a4668 !important;
+}
+
+/* Kontakt w ciemnej karcie (web) — czytelny tekst i linki względem tła bocznej kolumny */
+.web-mode .cv-sheet aside ul.cv-contact-list {
+  color: #e8f4ff !important;
+}
+
+.web-mode .cv-sheet aside ul.cv-contact-list a {
+  color: #bae6fd !important;
+}
+
+.web-mode .cv-sheet aside ul.cv-contact-list a:hover {
+  color: #f0f9ff !important;
+}
+
+.web-mode .cv-sheet aside ul.cv-contact-list .editable-text {
+  color: #e8f4ff !important;
+}
+
+.web-mode .cv-sheet aside ul.cv-contact-list .text-slate-400 {
+  color: #7dd3fc !important;
+}
+
+.web-mode .cv-photo-frame {
+  border-color: #36d1dc !important;
+}
+
+.web-mode .toolbar-btn-active {
+  background: #22d3ee;
+  color: #082f49;
+  box-shadow: inset 0 0 0 1px #67e8f9;
+}
+
+/* „Tryb edycji” — osobne wyróżnienie (tryb ciemny / web) */
+.web-mode .toolbar-btn.toolbar-btn-edit-on.toolbar-btn-active {
+  background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+  color: #022c22;
+  box-shadow:
+    inset 0 0 0 1px #6ee7b7,
+    0 0 14px rgb(52 211 153 / 0.38);
+}
+
+.web-mode .toolbar-btn.toolbar-btn-edit-on.toolbar-btn-active:hover {
+  background: linear-gradient(180deg, #6ee7b7 0%, #10b981 100%);
+  color: #022c22;
+}
+
+.web-mode .toolbar-btn-idle {
+  color: #c7d2fe;
+}
+
+.web-mode .toolbar-btn-idle:hover {
+  background: #11213d;
+}
+
+.web-mode .toolbar-btn {
+  border-color: #2a4668;
+}
+
+.web-mode .editable-text:hover {
+  border-color: #22d3ee;
+  background: rgb(8 47 73 / 0.72);
+}
+
+.web-mode .editable-text-focused {
+  border-color: #67e8f9 !important;
+  background: rgb(8 47 73 / 0.9);
+  box-shadow: 0 0 0 2px rgb(103 232 249 / 0.2);
+}
+
+.web-mode.edit-mode .editable-text {
+  border: 1px dashed #22d3ee !important;
+  background: rgb(8 47 73 / 0.28) !important;
+  color: #e2f3ff !important;
+}
+
+.print-preview {
+  background: #f8fafc;
+  --cv-surface: #ffffff;
+  --cv-border: #e2e8f0;
+  color: #0f172a;
+}
+
+.print-preview.edit-mode .editable-text {
+  border: 1px dashed #94a3b8 !important;
+  background: rgb(248 250 252 / 0.85) !important;
+  color: #0f172a !important;
+}
+
+.print-preview .cv-sheet {
+  background: #ffffff;
+}
+
+.print-preview .skill-delete {
+  background: #ffffff;
+}
+
+/* „Tryb edycji” — tryb druku (jasny) */
+.print-preview .toolbar-btn.toolbar-btn-edit-on.toolbar-btn-active {
+  background: linear-gradient(180deg, #0d9488 0%, #0f766e 100%);
+  color: #f0fdfa;
+  box-shadow:
+    inset 0 0 0 1px #5eead4,
+    0 2px 10px rgb(13 148 136 / 0.22);
+}
+
+.print-preview .toolbar-btn.toolbar-btn-edit-on.toolbar-btn-active:hover {
+  background: linear-gradient(180deg, #14b8a6 0%, #0d9488 100%);
+  color: #f0fdfa;
+}
+
+/* Tryb mieszany — jasna karta CV, granatowe akcenty */
+.cv-mixed-mode {
+  background: linear-gradient(165deg, #e9eefb 0%, #f5f7fc 42%, #edf2ff 100%);
+  --cv-surface: #ffffff;
+  --cv-border: #c9d2ea;
+  color: #0f172a;
+}
+
+.cv-mode-wrap.cv-mixed-mode {
+  background: linear-gradient(165deg, #e9eefb 0%, #f5f7fc 42%, #edf2ff 100%);
+}
+
+.cv-mixed-mode .cv-sheet,
+.cv-mixed-mode main.print-sheet.cv-sheet {
+  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%) !important;
+  border-color: #bfcae6 !important;
+  box-shadow:
+    0 0 0 1px rgb(59 89 152 / 0.28),
+    0 20px 40px -18px rgb(17 24 39 / 0.14);
+}
+
+.cv-mixed-mode .cv-divider {
+  border-color: #cbd5e1;
+}
+
+.cv-mixed-mode .cv-sheet .text-slate-900 {
+  color: #102a5e !important;
+}
+
+.cv-mixed-mode .cv-sheet .text-slate-700 {
+  color: #334155 !important;
+}
+
+.cv-mixed-mode .cv-sheet .text-slate-600 {
+  color: #475569 !important;
+}
+
+.cv-mixed-mode .cv-sheet .text-slate-500 {
+  color: #64748b !important;
+}
+
+.cv-mixed-mode .cv-sheet .text-slate-400 {
+  color: #1f3f84 !important;
+}
+
+.cv-mixed-mode .cv-sheet .skill-pill-premium {
+  background: #eef3ff !important;
+  border-color: #3d5ca8 !important;
+  color: #1f3f84 !important;
+}
+
+.cv-mixed-mode .cv-sheet .skill-pill {
+  background: #eef3ff !important;
+  border-color: #c5d2ef !important;
+  color: #1f3f84 !important;
+}
+
+.cv-mixed-mode .cv-sheet li::marker {
+  color: #2d4d94;
+}
+
+.cv-mixed-mode .cv-sheet a {
+  color: #1f3f84;
+}
+
+.cv-mixed-mode .cv-sheet a:hover {
+  color: #162f66;
+}
+
+.cv-mixed-mode .cv-sheet .cv-contact-list a {
+  color: #1b3a7a !important;
+}
+
+.cv-mixed-mode .cv-sheet .cv-contact-list a:hover {
+  color: #12295a !important;
+}
+
+.cv-mixed-mode .cv-section-rule {
+  border-top-color: #c8d4ef !important;
+}
+
+.cv-mixed-mode .cv-grid-print > aside {
+  border-color: #d8e1f5 !important;
+}
+
+.cv-mixed-mode .cv-photo-frame {
+  border-color: #a9b8de !important;
+}
+
+.cv-mixed-mode .cv-sheet .cv-contact-list svg,
+.cv-mixed-mode .cv-sheet .cv-contact-list .text-slate-400 {
+  color: #2b4f96 !important;
+}
+
+.cv-mixed-mode .toolbar-btn-active {
+  background: #1f3f84;
+  color: #eef3ff;
+  box-shadow: inset 0 0 0 1px #a9bce8;
+}
+
+/* „Tryb edycji” — tryb mieszany (jasna oprawa, granatowe akcenty) */
+.cv-mixed-mode .toolbar-btn.toolbar-btn-edit-on.toolbar-btn-active {
+  background: linear-gradient(180deg, #ea580c 0%, #c2410c 100%);
+  color: #fffbeb;
+  box-shadow:
+    inset 0 0 0 1px #fdba74,
+    0 2px 10px rgb(234 88 12 / 0.28);
+}
+
+.cv-mixed-mode .toolbar-btn.toolbar-btn-edit-on.toolbar-btn-active:hover {
+  background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+  color: #fffbeb;
+}
+
+.cv-mixed-mode .toolbar-btn-idle {
+  color: #0f172a;
+}
+
+.cv-mixed-mode .toolbar-btn-idle:hover {
+  background: rgb(225 233 249 / 0.85);
+}
+
+.cv-mixed-mode .toolbar-btn {
+  border-color: #c8d4ef;
+}
+
+.cv-mixed-mode .editable-text:hover {
+  border-color: #3d5ca8;
+  background: rgb(236 242 255 / 0.75);
+}
+
+.cv-mixed-mode .editable-text-focused {
+  border-color: #1f3f84 !important;
+  background: rgb(228 236 252 / 0.95);
+  box-shadow: 0 0 0 2px rgb(61 92 168 / 0.22);
+}
+
+.cv-mixed-mode.edit-mode .editable-text {
+  border: 1px dashed #3d5ca8 !important;
+  background: rgb(236 242 255 / 0.58) !important;
+  color: #0f172a !important;
+}
+
+.edit-mode .cv-sheet {
+  outline: 2px dashed #f59e0b;
+  outline-offset: -2px;
+}
+
+.edit-mode .editable-text {
+  border: 1px dashed #22c55e !important;
+  background: rgb(236 253 245 / 0.2) !important;
+}
+
+.skill-pill {
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.skill-editable {
+  border: 0 !important;
+  padding: 0 !important;
+  outline: 0;
+  cursor: text;
+}
+
+.skill-dragging {
+  opacity: 0.65;
+  transform: scale(0.98);
+}
+
+.skill-drop-target {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 1px #f59e0b;
+}
+
+.experience-item {
+  position: relative;
+  transition: transform 120ms ease, opacity 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.experience-dragging {
+  opacity: 0.7;
+  transform: scale(0.995);
+}
+
+.experience-drop-target {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 1px #f59e0b;
+  border-radius: 6px;
+}
+
+.draggable-item {
+  position: relative;
+  transition: transform 120ms ease, opacity 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.dragging-item {
+  opacity: 0.7;
+  transform: scale(0.995);
+}
+
+.drop-target-item {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 1px #f59e0b;
+  border-radius: 6px;
+}
+
+.cv-sheet {
+  background: var(--cv-surface);
+}
+
+.cv-divider {
+  border-color: var(--cv-border);
+}
+
+/* Ultra-thin rules between major CV blocks only (see page.tsx .cv-section-rule) */
+.cv-section-rule {
+  border-top-width: 0.5px;
+  border-top-style: solid;
+  border-top-color: #f1f5f9;
+}
+
+.cv-pill {
+  background: #f4f4f5;
+  border: 1px solid var(--cv-border);
+}
+
+@page {
+  size: A4 portrait;
+  margin: 6mm;
+}
+
+@media print {
+  /*
+   * Inter (variable) + Chrome/PDF potrafi nierównomiernie grubościować pionowe Ł (np. „l”).
+   * Czcionka systemowa + wyłączenie syntezy grubości i „antialiased” stabilizuje druk.
+   */
+  html {
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+    text-rendering: geometricPrecision;
+    font-synthesis: none;
+  }
+
+  html,
+  body {
+    width: auto;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-sheet [class*="border-red"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    clip-path: inset(50%) !important;
+    pointer-events: none !important;
+  }
+
+  .print-sheet,
+  .print-sheet * {
+    outline: none !important;
+  }
+
+  /*
+   * Przyciski/pola w arkuszu (czerwone kółka „usuń”) — nie wchodzą w podglądzie druku / PDF z przeglądarki.
+   */
+  .print-sheet button,
+  .print-sheet input,
+  .print-sheet textarea,
+  .print-sheet select,
+  .print-sheet [role="button"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    clip-path: inset(50%) !important;
+    position: absolute !important;
+    left: -10000px !important;
+    pointer-events: none !important;
+  }
+
+  .print-sheet,
+  .print-sheet * {
+    caret-color: transparent !important;
+  }
+
+  html,
+  body,
+  .cv-mode-wrap,
+  .print-preview {
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .cv-mode-wrap.min-h-screen {
+    min-height: 0 !important;
+  }
+
+  /* Pełna wysokość A4 na ekranie; w PDF min-height powiększa „puste” pudło i psuje zaznaczanie tekstu */
+  main.print-sheet {
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .print-sheet {
+    isolation: isolate;
+    width: 198mm !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    margin-top: 2mm !important;
+    border-radius: 0 !important;
+    border: none !important;
+    padding-bottom: 0 !important;
+    box-sizing: border-box !important;
+    background: #fff !important;
+    background-image: none !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-synthesis: none;
+    overflow: visible !important;
+  }
+
+  .cv-mode-wrap,
+  .print-preview,
+  .cv-mixed-mode {
+    background: #fff !important;
+    background-image: none !important;
+  }
+
+  .cv-sheet {
+    background: #fff !important;
+    background-image: none !important;
+  }
+
+  .print-footer {
+    position: static !important;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin-top: 2mm !important;
+    border-top-width: 0.5px !important;
+    border-top-style: solid !important;
+    border-top-color: #e2e8f0 !important;
+    padding-top: 1.2mm !important;
+    font-size: 8pt !important;
+    background: transparent !important;
+    color: #334155 !important;
+  }
+
+  /*
+   * PDF (Chrome/Adobe): układ dwukolumnowy table-cell — stabilne łamanie stron względem float.
+   */
+  .cv-grid-print {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .cv-grid-print > aside {
+    display: table-cell !important;
+    float: none !important;
+    width: 32% !important;
+    max-width: 54mm !important;
+    box-sizing: border-box !important;
+    border-right: 0.5px solid #e2e8f0 !important;
+    padding-right: 3mm !important;
+    vertical-align: top !important;
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv-grid-print > section {
+    display: table-cell !important;
+    float: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    vertical-align: top !important;
+    overflow: visible !important;
+  }
+
+  .cv-grid-print > section > * + * {
+    margin-top: 1rem !important;
+  }
+
+  .cv-grid-print::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Zachowaj ciemny wygląd przy zapisie PDF z trybu web-mode */
+  .web-mode .print-sheet,
+  .web-mode .cv-sheet,
+  .web-mode main.print-sheet.cv-sheet {
+    background: linear-gradient(160deg, #0a1020 0%, #101a33 100%) !important;
+    border-color: #2a4668 !important;
+  }
+
+  .web-mode .cv-grid-print > aside {
+    background: #101a33 !important;
+    border-right-color: #2a4668 !important;
+  }
+
+  .print-sheet h2,
+  .print-sheet h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .print-sheet .experience-item {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  /* Wiersz tytuł | okres: table-cell zamiast block — w PDF daty nie „pływają” i zostają w prawej kolumnie */
+  .print-sheet .experience-item .grid {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+  }
+
+  .print-sheet .experience-item .grid > h3 {
+    display: table-cell !important;
+    width: 70% !important;
+    vertical-align: top !important;
+    padding-right: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .print-sheet .experience-item .grid > div.flex {
+    display: table-cell !important;
+    width: 30% !important;
+    vertical-align: top !important;
+    text-align: right !important;
+    white-space: normal !important;
+  }
+
+  .print-sheet .experience-item .grid > div.flex p {
+    text-align: right !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .print-sheet .experience-item,
+  .print-sheet .section-order-block {
+    overflow: visible !important;
+    overflow-x: visible !important;
+  }
+
+  /*
+   * Nie powielaj górnej linii sekcji po przełamaniu strony (PDF/print fragmentacja).
+   * Globalne `box-decoration-break: clone` jest potrzebne dla innych elementów,
+   * ale dla bloków sekcji chcemy klasyczne zachowanie.
+   */
+  .print-sheet .section-order-block,
+  .print-sheet .cv-section-rule {
+    -webkit-box-decoration-break: slice !important;
+    box-decoration-break: slice !important;
+  }
+
+  .print-sheet .overflow-x-clip {
+    overflow-x: visible !important;
+  }
+
+  .print-sheet h2.flex {
+    display: block !important;
+  }
+
+  .print-sheet h2.flex > svg {
+    display: inline-block !important;
+    vertical-align: -0.2em;
+    margin-right: 0.35em;
+  }
+
+  .print-sheet h2.flex > span {
+    display: inline !important;
+  }
+
+  /* Zdjęcie i imię w jednym rzędzie z odstępem */
+  .print-sheet aside > div.flex.items-center.gap-3 {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    text-align: left !important;
+  }
+
+  .print-sheet aside > div.flex.items-center.gap-3 > div.relative {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .print-sheet aside > div.flex.items-center.gap-3 > div.min-w-0.flex-1 {
+    min-width: 0 !important;
+  }
+
+  .print-sheet aside .flex.flex-wrap.gap-1\.5 {
+    display: block !important;
+  }
+
+  .print-sheet aside .flex.flex-wrap.gap-1\.5 .skill-pill,
+  .print-sheet aside .flex.flex-wrap.gap-1\.5 .skill-pill-premium {
+    display: inline-block !important;
+    margin: 0 0.25em 0.35em 0 !important;
+    vertical-align: top !important;
+  }
+
+  .print-sheet .cv-contact-list {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .print-sheet .cv-contact-list li {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.35em !important;
+  }
+
+  .print-sheet .cv-contact-list li > svg {
+    display: inline-block !important;
+    width: 1.25em !important;
+    flex: 0 0 1.25em !important;
+    margin-top: 0.05em !important;
+  }
+
+  .print-sheet .cv-contact-list li .min-w-0.flex-1 {
+    display: block !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    padding-bottom: 0.35em !important;
+  }
+
+  .print-sheet aside ul.space-y-1 li.draggable-item {
+    display: block !important;
+  }
+
+  .print-sheet aside ul.space-y-1 li.draggable-item .min-w-0.flex-1 {
+    display: block !important;
+    flex: none !important;
+  }
+
+  .print-sheet section > .section-order-block > .mb-1.flex {
+    display: block !important;
+  }
+
+  .print-sheet img,
+  .print-sheet .cv-photo-frame,
+  .print-sheet .cv-photo-frame * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  .skill-pill-premium {
+    background: #ffffff !important;
+    border-color: #e2e8f0 !important;
+    color: #334155 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv-pill:not(.skill-pill-premium) {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .editable-text {
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .skill-delete {
+    display: none !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .cv-section-rule {
+    border-top-color: #e2e8f0 !important;
+  }
+
+  /* Zachowaj punktatory list (Trainings / Certifications) w podglądzie druku i PDF */
+  .print-sheet ul.list-disc {
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
 }
